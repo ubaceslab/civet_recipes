@@ -1,9 +1,6 @@
 #!/bin/bash
-init_script || exit 1
 
-print_and_run module load autotools git gdb valgrind anaconda 
-exitIfReturnCode $?
+module purge
+module load autotools git gdb valgrind anaconda 
 
 printf "\nSuccessfully loaded common modules\n"
-
-exit 0

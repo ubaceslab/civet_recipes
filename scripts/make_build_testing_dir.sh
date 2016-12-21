@@ -4,10 +4,15 @@
 init_script || exit 1
 
 SUBDIR=$BUILD_ROOT/$FEMPUTER_BUILD_DIRNAME
-mkdir -p $SUBDIR
-cd "$SUBDIR"
+
+rm -rf $SUBDIR
 exitIfReturnCode $?
 
-printf "\nSuccessfully created $SUBDIR \n"
+printf "\nSuccessfully cleaned out $SUBDIR \n"
+
+mkdir -p $SUBDIR
+exitIfReturnCode $?
+
+printf "\nSuccessfully created new testing directory $SUBDIR \n"
 
 exit 0
