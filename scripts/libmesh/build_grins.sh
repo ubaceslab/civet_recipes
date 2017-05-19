@@ -3,7 +3,11 @@
 
 init_script || exit 1
 
-load_grins_modules || exit 1
+if [ $METHOD == "dbg" ]; then
+   load_grins_modules_dbg || exit 1
+else
+   load_grins_modules || exit 1
+fi
 
 print_and_run module list
 exitIfReturnCode $?
