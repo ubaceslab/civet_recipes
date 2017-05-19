@@ -13,7 +13,7 @@ SUBDIR=$BUILD_ROOT/$FEMPUTER_LIBMESH_GRINS_BUILD_DIR
 cd $SUBDIR
 exitIfReturnCode $?
 
-print_and_run make -j $FEMPUTER_N_MAKE_THREADS check
+print_and_run make -j ${FEMPUTER_N_MAKE_THREADS:?undefined} check
 exitIfReturnCode $?
 
 printf "\nGRINS passed make check!\n"

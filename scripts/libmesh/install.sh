@@ -14,7 +14,7 @@ exitIfReturnCode $?
 
 printf "\nInstalling libMesh in $FEMPUTER_INSTALL_DIRNAME.\n"
 
-print_and_run make -j $FEMPUTER_N_MAKE_THREADS install
+print_and_run make -j ${FEMPUTER_N_MAKE_THREADS:?undefined} install
 exitIfReturnCode $?
 
 printf "\nSuccessfully installed libMesh.\n"

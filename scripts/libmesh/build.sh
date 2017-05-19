@@ -10,7 +10,7 @@ exitIfReturnCode $?
 print_and_run module list
 exitIfReturnCode $? 
 
-print_and_run make -j $FEMPUTER_N_MAKE_THREADS
+print_and_run make -j ${FEMPUTER_N_MAKE_THREADS:?undefined}
 exitIfReturnCode $?
 
 printf "\nSuccessfully built libMesh.\n"
