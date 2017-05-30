@@ -5,6 +5,12 @@ init_script || exit 1
 
 SUBDIR=$BUILD_ROOT/$FEMPUTER_BUILD_DIRNAME
 cd "$BUILD_ROOT"
+exitIfReturnCode $?
+
+# We need this to be able to remove make distcheck turds
+chmod u+w -R $SUBDIR
+exitIfReturnCode $?
+
 rm -rf $SUBDIR
 exitIfReturnCode $?
 

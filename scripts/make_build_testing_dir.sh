@@ -5,10 +5,16 @@ init_script || exit 1
 
 SUBDIR=$BUILD_ROOT/$FEMPUTER_BUILD_DIRNAME
 
-rm -rf $SUBDIR
-exitIfReturnCode $?
+# We need this to be able to remove make distcheck turds
+if [ -d $SUBDIR ]; then
+   chmod u+w -R $SUBDIR
+   exitIfReturnCode $?
 
-printf "\nSuccessfully cleaned out $SUBDIR \n"
+   rm -rf $SUBDIR
+   exitIfReturnCode $?
+
+   printf "\nSuccessfully cleaned out $SUBDIR \n"
+fi
 
 mkdir -p $SUBDIR
 exitIfReturnCode $?
