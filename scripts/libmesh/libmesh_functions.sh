@@ -2,7 +2,7 @@
 
 function load_grins_modules()
 {
-  module load gsl antioch cantera
+  module load gsl antioch
 }
 export -f load_grins_modules
 
