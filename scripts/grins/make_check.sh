@@ -9,7 +9,7 @@ exitIfReturnCode $?
 print_and_run module list
 exitIfReturnCode $? 
 
-print_and_run make -j ${FEMPUTER_N_MAKE_THREADS:?undefined} check 
+print_and_run make -j ${FEMPUTER_N_MAKE_THREADS:?undefined} check || (cat test/test-suite.log; false) 
 exitIfReturnCode $?
 
 printf "\nSuccessfully ran make check for GRINS.\n"
